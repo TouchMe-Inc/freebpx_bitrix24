@@ -1,0 +1,20 @@
+<module>
+  <rawname>bitrix24</rawname>
+  <name>Bitrix24 integration</name>
+  <version>16.0.0</version>
+  <publisher>TouchMe-Inc</publisher>
+  <license>AGPLv3</license>
+  <licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
+  <changelog>*16.0.0* Initial release</changelog>
+  <category>Bitrix24</category>
+  <description>Integration with Bitrix24</description>
+  <menuitems>
+    <bitrix24 needsenginerunning="yes">Bitrix24</bitrix24>
+  </menuitems>
+  <supported>
+    <version>16.0</version>
+  </supported>
+  <requirements>
+    <module>core</module>
+  </requirements>
+</module>

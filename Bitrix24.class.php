@@ -2,8 +2,11 @@
 
 namespace FreePBX\modules;
 
+use Atevi\Classes\Dialplan;
+use Atevi\Contexts\ContextCreator;
 use Base\Config;
 use Bitrix24\RestApi;
+use Dialplan\DialplanHook;
 use Exception;
 use PDO;
 
@@ -204,6 +207,27 @@ class Bitrix24 implements \BMO
 
     public function restore($backup)
     {
+    }
+
+    public static function myDialplanHooks()
+    {
+        return 999;
+    }
+
+    public function doDialplanHook(&$ext, $engine, $priority)
+    {
+        if ($engine != "asterisk") {
+            return;
+        }
+
+        $hooks = [
+            'Dialplan\\Impl\\Ext'
+        ];
+
+        /** @var DialplanHook $hook */
+        foreach ($hooks as $hook) {
+            $hook::execution($ext);
+        }
     }
 
     /**
